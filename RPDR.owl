@@ -7,7 +7,7 @@
      xmlns:untitled-ontology-3="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl">
         <Definitions>This ontology describes season 2 of the television program RuPaul&apos;s Drag Race All Stars. It includes contestants, judges, episode titles, challenges and their results, and winners of lip-sync battles.</Definitions>
         <License>This ontology is licensed under Creative Commons Attribution 4.0 (CC BY 4.0)</License>
         <Source>McCoy, B. (Producer). (2016). RuPaul’s drag race all stars: Season 2 [Television series]. Hollywood, CA: Logo TV.</Source>
@@ -73,14 +73,13 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Challenges"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
-        <Definitions>&quot;fromEpisode&quot; indicates which episode a challenge or lipsync battle occurs in.</Definitions>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedOn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
+        <Definitions>&quot;hasEliminatedQueen&quot; indicates which contestant is eliminated on a particular episode.</Definitions>
     </owl:ObjectProperty>
     
 
@@ -88,6 +87,7 @@
     <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Challenges"/>
         <Definitions>&quot;hasChallenge&quot; indicates which challenge was the focus of a particular episode.</Definitions>
@@ -95,13 +95,13 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
-        <Definitions>&quot;hasContestants&quot; indicates which contestants belong to a particular season</Definitions>
+        <Definitions>&quot;hasContestants&quot; indicates which contestants belong to a particular season.</Definitions>
     </owl:ObjectProperty>
     
 
@@ -109,8 +109,10 @@
     <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
+        <Definitions>&quot;hasLipsync&quot; indicates that a lipsync took place in a particular episode.</Definitions>
     </owl:ObjectProperty>
     
 
@@ -134,6 +136,16 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <Definitions>&quot;hasWinner&quot; connects a Challenge or Lip-sync to the Contestant who won it.</Definitions>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Challenges"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <Definitions>&quot;fromEpisode&quot; indicates which episode a challenge or lipsync battle occurs in.</Definitions>
     </owl:ObjectProperty>
     
 
@@ -169,12 +181,33 @@
     
 
 
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <Definitions>&quot;isLipsyncFrom&quot; describes which episode a lipsync occurs in.</Definitions>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Challenges"/>
         <Definitions>&quot;isLoserOf&quot; indicates who lost a particular challenge.</Definitions>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
+        <Definitions>&quot;originallyFrom&quot; connects a contestant to their original season.</Definitions>
     </owl:ObjectProperty>
     
 
@@ -186,16 +219,6 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Challenges"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
         <Definitions>&quot;is WinnerOf&quot; indicates which contestant won either a challenge or lipsync.</Definitions>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
-        <Definitions>&quot;originallyFrom&quot; connects a contestant to their original season.</Definitions>
     </owl:ObjectProperty>
     
 
@@ -224,12 +247,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonSix"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -257,73 +280,85 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatorOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatorOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tatianna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf_MiniChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental_MiniChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonFive"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -349,6 +384,30 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Star_Talent_Show_Extravaganza">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Coco_Montrese"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental_MiniChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off_Lipsync"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>25 August 2016</Air_Date>
         <Definitions>In the first episode of All Stars season 2, the contestants compete in the mini challenge for insulting each other and then in a maxi challenge to showcase a talent of their choice.</Definitions>
     </owl:Class>
@@ -371,6 +430,30 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Snatch_Game">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Adore_Delano"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tatianna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak_Lipsync"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>1 September 2016</Air_Date>
         <Definitions>Episode 2 of All Stars season 2. In this episode, the queens impersonate celebrities for a parody of the old tv game show Match Game.</Definitions>
     </owl:Class>
@@ -395,14 +478,20 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Roxxxy_Andrews"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Air_Date>13 October 2016</Air_Date>
@@ -429,6 +518,18 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alaska"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Detox"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedOn"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Shequels"/>
             </owl:Restriction>
@@ -441,43 +542,49 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatorOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Ginger_Minj"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonFive"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -499,9 +606,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf_MiniChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf_MiniChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MiniChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -511,14 +618,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Fish_Tank"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In Beastly Golf, the queens play mini-golf but with heavy balls in a pouch hanging from their waists instead of clubs.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf_MiniChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In Beastly Golf, the queens play mini-golf but with heavy balls in a pouch hanging from their waists instead of clubs.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -531,7 +638,7 @@
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Challenges">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -546,26 +653,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Fish_Tank"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alaska"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Fish_Tank"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>&quot;Cherry Bomb&quot; is a song by Joan Jett and the Blackhearts. Katya and Alaska competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;Cherry Bomb&quot; is a song by Joan Jett and the Blackhearts. Katya and Alaska competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -579,6 +686,12 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Roxxxy_Andrews"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedOn"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Star_Talent_Show_Extravaganza"/>
             </owl:Restriction>
@@ -586,12 +699,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonFive"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -618,7 +731,7 @@
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -639,43 +752,49 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatorOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonFive"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -701,6 +820,30 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Fish_Tank">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tatianna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Beastly_Golf_MiniChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Cherry_Bomb_Lipsync"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>29 September 2016</Air_Date>
         <Definitions>Episode 6 of All Stars season 2. In this episode, the queens first compete in the mini challenge Beastly Golf and then in a maxi challenge to design and market a drag product.</Definitions>
     </owl:Class>
@@ -719,9 +862,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -755,14 +898,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Shequels"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In this challenge, queens had to act in parody sequels to some of RuPaul&apos;s favourite movies.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In this challenge, queens had to act in parody sequels to some of RuPaul&apos;s favourite movies.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -774,6 +917,24 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Shequels">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Got_to_Be_Real_Lipsync"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>15 September 2016</Air_Date>
         <Definitions>Episode 4 of All Stars season 2. In this episode, the queens pair up and act in parody sequels to some of RuPaul&apos;s favourite movies starring women.</Definitions>
     </owl:Class>
@@ -795,6 +956,24 @@
     <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Challenges"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>25 August - 27 October, 2016</Air_Date>
         <Definitions>Episodes of RuPaul&apos;s Drag Race All Stars season 2. All are 42 minutes in length except for the All Star Snatch Game, which was 1 hour and 2 minutes. Regular episodes have a Maxi Challenge and a lipsync battle.</Definitions>
         <Director>Nick Murray directs all episodes of this season of All Stars.</Director>
@@ -820,9 +999,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -856,14 +1035,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_That_Drags_Together"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In this challenge, the queens had to put a member of their own family into drag and complete a short drag performance with the family member.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In this challenge, the queens had to put a member of their own family into drag and complete a short drag performance with the family member.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/Drag_Makeovers</Source>
@@ -875,6 +1054,24 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_That_Drags_Together">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up_Lipsync"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>6 October 2016</Air_Date>
         <Definitions>Episode 7 of All Stars season 2. In this episode, the queens makeover a member of their families in the maxi challenge.</Definitions>
     </owl:Class>
@@ -899,6 +1096,12 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedOn"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_of_the_World"/>
             </owl:Restriction>
@@ -906,12 +1109,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonSeven"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -933,26 +1136,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Got_to_Be_Real -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Got_to_Be_Real_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Got_to_Be_Real">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Got_to_Be_Real_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Shequels"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alaska"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Shequels"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>&quot;Got to Be Real&quot; is a song by Cheryl Lynn. PhiPhi O&apos;Hara and Alaska competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Got_to_Be_Real"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Got_to_Be_Real_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;Got to Be Real&quot; is a song by Cheryl Lynn. PhiPhi O&apos;Hara and Alaska competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -960,9 +1163,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -990,14 +1193,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_of_the_World"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In this challenge, the queens dressed as famous women from history and performed in a comical lipsync about those women.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In this challenge, the queens dressed as famous women from history and performed in a comical lipsync about those women.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1009,6 +1212,24 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_of_the_World">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Ginger_Minj"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart_Lipsync"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>8 September 2016</Air_Date>
         <Definitions>Episode 3 of All Stars season 2. In this episode, the queens impersonate important but notorious female figures from history and perform a song about those figures&apos; exploits.</Definitions>
     </owl:Class>
@@ -1027,26 +1248,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Supergroup"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alaska"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Supergroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>&quot;If I Were Your Woman&quot; is a song by Gladys Knight and the Pips. Alaska, Katya, and Detox competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#If_I_Were_Your_Woman_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;If I Were Your Woman&quot; is a song by Gladys Knight and the Pips. Alaska, Katya, and Detox competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1061,42 +1282,42 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_Lipsync_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonSeven"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1118,26 +1339,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Snatch_Game"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alaska"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Snatch_Game"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>&quot;Le Freak&quot; is a song by Chic. Katya and Alaska competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Le_Freak_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;Le Freak&quot; is a song by Chic. Katya and Alaska competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1150,14 +1371,14 @@
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>Lipsync Battles occur at the end of each episode of RuPaul&apos;s Drag Race All Stars and determine the ultimate winner of the episode. The winners of the maxi challenge lipsync (mouth the words while dancing or otherwise performing) to a song selected in advance. The winner of the lipsync is then required to eliminate one of the contestants who lost the maxi challenge.</Definitions>
@@ -1166,14 +1387,14 @@
         <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>Lipsync Battles occur at the end of each episode of RuPaul&apos;s Drag Race All Stars and determine the ultimate winner of the episode. The winners of the maxi challenge lipsync (mouth the words while dancing or otherwise performing) to a song selected in advance. The winner of the lipsync is then required to eliminate one of the contestants who lost the maxi challenge.</owl:annotatedTarget>
-        <Source>https://www.imdb.com/title/tt2301351/?ref_=ttep_ep_tt</Source>
+        <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
     </owl:Axiom>
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1213,14 +1434,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Revenge_of_the_Queens"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In this challenge, the queens had to write stand-up comedy routines and perform their set in front of a live audience.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In this challenge, the queens had to write stand-up comedy routines and perform their set in front of a live audience.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1246,6 +1467,12 @@
         </rdfs:subClassOf>
         <Definitions>Every episode of RuPaul&apos;s Drag Race All Stars has a Maxi Challenge. These main challenges test the contestants on a variety of drag skills, and each has both winners (tops) and losers (bottoms).</Definitions>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
+        <owl:annotatedTarget>Every episode of RuPaul&apos;s Drag Race All Stars has a Maxi Challenge. These main challenges test the contestants on a variety of drag skills, and each has both winners (tops) and losers (bottoms).</owl:annotatedTarget>
+        <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
+    </owl:Axiom>
     
 
 
@@ -1265,7 +1492,7 @@
         <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MiniChallenges"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>Mini-challenges happen at the beginning of an episode. They are quick challenges that may grant an advantage to the winner for the main challenge.</owl:annotatedTarget>
-        <Source>https://ca.outtvgo.com/page/5a2f33b323eec6000db5fdca</Source>
+        <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
     </owl:Axiom>
     
 
@@ -1284,9 +1511,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1314,14 +1541,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Fish_Tank"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In this challenge the queens had to invent a product and then write, produce, and star in a commercial to sell that product.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In this challenge the queens had to invent a product and then write, produce, and star in a commercial to sell that product.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1329,16 +1556,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Supergroup"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLoser"/>
@@ -1363,14 +1584,26 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Katya"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Supergroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>In this challenge the contestants had to write lyrics for a verse of the RuPaul single &quot;Read U Wrote U&quot; and then learn choreography and perform the song in front of the judges.</Definitions>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
+        <owl:annotatedTarget>In this challenge the contestants had to write lyrics for a verse of the RuPaul single &quot;Read U Wrote U&quot; and then learn choreography and perform the song in front of the judges.</owl:annotatedTarget>
+        <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
+    </owl:Axiom>
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental_MiniChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental_MiniChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MiniChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1380,14 +1613,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Star_Talent_Show_Extravaganza"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In the Reading is Fundamental challenge, the queens take turns roasting (making fun of) each other.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Reading_is_Fundamental_MiniChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In the Reading is Fundamental challenge, the queens take turns roasting (making fun of) each other.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/Reading_is_Fundamental</Source>
@@ -1421,6 +1654,24 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Revenge_of_the_Queens">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Episodes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/RPDRowl#hasEliminatedQueen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#PhiPhi_O&apos;Hara"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasChallenge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasLipsync"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive_Lipsync"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Air_Date>22 September 2016</Air_Date>
         <Definitions>Episode 5 of All Stars season 2. In this episode, the eliminated queens return for a chance to get back into the competition. They pair up with remaining queens and perform a set of live stand-up comedy.</Definitions>
     </owl:Class>
@@ -1451,55 +1702,61 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatorOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Coco_Montrese"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_Makeover_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#ReadU_WroteU_Lyrics_and_Performance_MaxiChallenge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonFive"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1527,31 +1784,31 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alaska"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Coco_Montrese"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Detox"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Roxxxy_Andrews"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1579,7 +1836,7 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#PhiPhi_O&apos;Hara"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1607,13 +1864,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Ginger_Minj"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Katya"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1641,7 +1898,7 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Adore_Delano"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1669,7 +1926,7 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#OriginalSeason"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestants"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasContestant"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tatianna"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1691,26 +1948,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Star_Talent_Show_Extravaganza"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Roxxxy_Andrews"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Star_Talent_Show_Extravaganza"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>&quot;Shake It Off&quot; is a song by Taylor Swift. Roxxxy Andrews and Tatiana competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shake_It_Off_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;Shake It Off&quot; is a song by Taylor Swift. Roxxxy Andrews and Tatiana competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1718,9 +1975,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
         <rdfs:subClassOf>
             <owl:Class>
@@ -1735,14 +1992,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Revenge_of_the_Queens"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>&quot;Shut Up and Drive&quot; is a song by Rihanna. Alyssa Edwards and Tatianna competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;Shut Up and Drive&quot; is a song by Rihanna. Alyssa Edwards and Tatianna competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1750,9 +2007,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1786,14 +2043,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Stars_Snatch_Game"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In this challenge the queens compete on a parody of the old game show the Match Game by impersonating celebrities.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In this challenge the queens compete on a parody of the old game show the Match Game by impersonating celebrities.</owl:annotatedTarget>
         <rdfs:comment>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</rdfs:comment>
@@ -1801,26 +2058,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_That_Drags_Together"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Detox"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Family_That_Drags_Together"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>&quot;Step It Up&quot; is a song by RuPaul. Detox and Katya competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Step_It_Up_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;Step It Up&quot; is a song by RuPaul. Detox and Katya competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1828,9 +2085,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#MaxiChallenges"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1864,14 +2121,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isChallengeFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#All_Star_Talent_Show_Extravaganza"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <Definitions>In this challenge the queens perform in a talent show with an act of their choice.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>In this challenge the queens perform in a talent show with an act of their choice.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1883,6 +2140,18 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tatianna">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alaska"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Roxxxy_Andrews"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedOn"/>
@@ -1898,36 +2167,36 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Product_Design_and_Marketing_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Snatch_Game_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Shut_Up_and_Drive_Lipsync"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonTwo"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1949,26 +2218,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart -->
+    <!-- http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart_Lipsync -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart">
+    <owl:Class rdf:about="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart_Lipsync">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Lipsync_Battle"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#fromEpisode"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_of_the_World"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#hasWinner"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLipsyncFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#HERstory_of_the_World"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <Definitions>&quot;Tell it to My Heart&quot; is a song by Taylor Dayne. Alyssa Edwards and Detox competed in this lipsync.</Definitions>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Tell_It_to_My_Heart_Lipsync"/>
         <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Definitions"/>
         <owl:annotatedTarget>&quot;Tell it to My Heart&quot; is a song by Taylor Dayne. Alyssa Edwards and Detox competed in this lipsync.</owl:annotatedTarget>
         <Source>https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)</Source>
@@ -1982,6 +2251,12 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Contestants"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Alyssa_Edwards"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isEliminatedOn"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Revenge_of_the_Queens"/>
             </owl:Restriction>
@@ -1989,24 +2264,24 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Live_Stand-up_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isLoserOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Talent_Show_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isWinnerOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#Drag_Movie_Acting_MaxiChallenge"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#originallyFrom"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#isOriginallyFrom"/>
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nicole/ontologies/2019/1/untitled-ontology-3#SeasonFour"/>
             </owl:Restriction>
         </rdfs:subClassOf>
